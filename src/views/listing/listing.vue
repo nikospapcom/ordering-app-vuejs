@@ -15,11 +15,14 @@
           mx-auto
           p-2
           border-b border-gray-300
+          flex-wrap
         "
       >
-        <div class="w-1/4 text-left">{{ product.name }}</div>
-        <div class="w-1/4">{{ formattedPrice(product.price) }}$</div>
-        <div class="w-1/4 flex items-center text-xs">
+        <div class="w-1/2 md:w-1/4 text-left">{{ product.name }}</div>
+        <div class="w-1/2 md:w-1/4 text-right md:text-center">
+          {{ formattedPrice(product.price) }}$
+        </div>
+        <div class="w-1/2 md:w-1/4 flex items-center text-xs">
           <input
             type="number"
             v-model="product.quantity"
@@ -41,7 +44,7 @@
           />
           kgs
         </div>
-        <div class="w-1/4 text-right">
+        <div class="w-1/2 md:w-1/4 text-right">
           <button
             type="button"
             class="
