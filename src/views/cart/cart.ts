@@ -1,4 +1,6 @@
 import { Vue, Component, Prop } from 'vue-property-decorator';
+import { postRequest } from '@/utils/axiosClient';
+import { STATUS_CODE } from '@/constants/status';
 
 @Component({
   data() {
@@ -6,6 +8,9 @@ import { Vue, Component, Prop } from 'vue-property-decorator';
       coupon: null,
       discount: null,
       appliedCoupon: null,
+      error: false,
+      loaded: true,
+      completed: false,
     };
   },
 })
@@ -18,6 +23,12 @@ export default class Cart extends Vue {
   discount: number;
 
   appliedCoupon: string;
+
+  loaded: boolean;
+
+  error: boolean;
+
+  completed: boolean;
 
   formattedPrice(price: any) {
     return +price / 100;
@@ -60,7 +71,16 @@ export default class Cart extends Vue {
     this.coupon = '';
   }
 
-  completeOrder() {
-    console.log(this.cart);
+  async completeOrder() {
+    this.loaded = true;
+
+    const response = await postRequest('order', this.cart);
+
+    if (response.status === STATUS_CODE.OK
+      && response.data.success) {
+      this.completed = true;
+    } else {
+      this.error = true;
+    }
   }
 }

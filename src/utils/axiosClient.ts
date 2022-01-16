@@ -10,3 +10,10 @@ export function getRequest(URL: string) {
     .then((response) => response)
     .catch((error) => error.response);
 }
+
+export function postRequest(URL: string, data: any) {
+  return axiosClient
+    .post(`/${URL}`, ...data)
+    .then((response) => response)
+    .catch((error) => error.response);
+}
