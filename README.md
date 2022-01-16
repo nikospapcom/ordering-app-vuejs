@@ -1,5 +1,10 @@
-# katoo-test
+## Notes
+I'm writing some notes about the project
+The project has 2 routes, `listing`, `cart`
 
+## Tools I used
+vue-cli with typescript,
+tailwind css for UI
 ## Project setup
 ```
 yarn install
