@@ -36,7 +36,6 @@ export default class App extends Vue {
   }
 
   addToCart(product: any) {
-    console.log(product);
     this.cart = [...this.cart, product];
   }
 }

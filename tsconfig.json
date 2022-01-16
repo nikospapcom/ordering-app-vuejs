@@ -11,10 +11,12 @@
     "esModuleInterop": true,
     "allowSyntheticDefaultImports": true,
     "strictPropertyInitialization": false,
+    "preserveConstEnums": true,
     "sourceMap": true,
     "baseUrl": ".",
     "types": [
-      "webpack-env"
+      "webpack-env",
+      "@types/uuid"
     ],
     "paths": {
       "@/*": [

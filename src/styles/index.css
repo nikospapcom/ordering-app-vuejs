@@ -1,0 +1,10 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+.base-container {
+  max-width: 1200px;
+  @apply m-auto
+  px-4
+  w-full;
+}
